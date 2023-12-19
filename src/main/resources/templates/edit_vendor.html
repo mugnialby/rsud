@@ -35,14 +35,14 @@
             <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
                 <h1 class="text-center"> Edit Vendor </h1>
                 <div class="card-body">
-                    <form th:action="@{/master/vendors/update/{id} (id=${vendor.id})}" th:object="${request}" method="POST">
+                    <form th:action="@{/master/vendors/update/{id}(id=${vendor.id})}" th:object="${vendor}" method="POST">
                         <div class="form-group">
                             <label> Vendor Name </label>
                             <input
                                     type="text"
                                     name="vendorName"
                                     class="form-control"
-                                    th:field="{vendorName}"
+                                    th:field="*{vendorName}"
                                     placeholder="Enter Vendor Name"
                             />
                         </div>

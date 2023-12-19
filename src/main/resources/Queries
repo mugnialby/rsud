@@ -1,0 +1,10 @@
+-- POSTGRES
+CREATE TABLE mst_vendor (
+	id serial PRIMARY KEY,
+	vendor_name VARCHAR(128) NOT NULL,
+    status VARCHAR(1) NOT NULL DEFAULT 'Y',
+	created_by VARCHAR(128) NOT NULL,
+	created_at TIMESTAMP NOT NULL,
+	modified_by VARCHAR(128),
+	modified_at TIMESTAMP
+);

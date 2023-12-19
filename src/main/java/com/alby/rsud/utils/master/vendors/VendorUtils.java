@@ -2,9 +2,8 @@ package com.alby.rsud.utils.master.vendors;
 
 import com.alby.rsud.dto.master.vendor.request.VendorAddRequest;
 import com.alby.rsud.dto.master.vendor.request.VendorUpdateRequest;
-import com.alby.rsud.dto.master.vendor.response.VendorAddResponse;
 import com.alby.rsud.dto.master.vendor.response.VendorResponse;
-import com.alby.rsud.entity.Vendor;
+import com.alby.rsud.entity.master.Vendor;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,12 +21,12 @@ public class VendorUtils {
                     .id(vendor.getId())
                     .vendorName(vendor.getVendorName())
                     .createdBy(vendor.getCreatedBy())
-                    .createdAt(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
-                            .format(vendor.getCreatedAt()))
-                    .modifiedBy(vendor.getModifiedBy())
-                            .modifiedAt(null != vendor.getModifiedAt()
-                                    ? DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
-                                        .format(vendor.getModifiedAt()) : null)
+//                    .createdAt(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
+//                            .format(vendor.getCreatedAt()))
+//                    .modifiedBy(vendor.getModifiedBy())
+//                            .modifiedAt(null != vendor.getModifiedAt()
+//                                    ? DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
+//                                        .format(vendor.getModifiedAt()) : null)
                     .build());
         }
 
@@ -43,9 +42,9 @@ public class VendorUtils {
     public static VendorResponse mapVendorToVendorResponse(Vendor vendor) {
         return VendorResponse.builder()
                 .vendorName(vendor.getVendorName())
-                .createdBy(vendor.getCreatedBy())
-                .createdAt(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
-                        .format(vendor.getCreatedAt()))
+//                .createdBy(vendor.getCreatedBy())
+//                .createdAt(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
+//                        .format(vendor.getCreatedAt()))
                 .build();
     }
 

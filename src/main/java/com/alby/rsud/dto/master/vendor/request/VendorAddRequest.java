@@ -14,13 +14,13 @@ import org.hibernate.validator.constraints.Length;
 public class VendorAddRequest {
 
     @NotBlank
-    @Length(max = 100)
+    @Length(max = 128)
     private String vendorName;
 
-    @NotBlank
-    @Length(max = 100)
+//    @NotBlank
+//    @Length(max = 100)
     private String createdBy;
 
-    @Length(max = 100)
+//    @Length(max = 100)
     private String modifiedBy;
 }

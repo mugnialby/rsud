@@ -3,7 +3,7 @@ package com.alby.rsud.serviceimpl;
 import com.alby.rsud.dto.master.vendor.request.VendorAddRequest;
 import com.alby.rsud.dto.master.vendor.request.VendorUpdateRequest;
 import com.alby.rsud.dto.master.vendor.response.VendorResponse;
-import com.alby.rsud.entity.Vendor;
+import com.alby.rsud.entity.master.Vendor;
 import com.alby.rsud.repository.VendorRepository;
 import com.alby.rsud.service.VendorService;
 import com.alby.rsud.utils.master.vendors.VendorUtils;

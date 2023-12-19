@@ -1,4 +1,4 @@
-package com.alby.rsud.entity;
+package com.alby.rsud.entity.master;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -25,6 +25,8 @@ public class Vendor {
             nullable = false
     )
     private String vendorName;
+
+    private String status;
 
     @Column(name = "created_by")
     private String createdBy;

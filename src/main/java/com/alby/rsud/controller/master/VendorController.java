@@ -31,7 +31,7 @@ public class VendorController {
     public String submit(@ModelAttribute("request") VendorAddRequest request) {
         Boolean valid = vendorService.submit(request);
         if (valid) {
-            return "redirect:/master/vendors";
+            return "redirect:/master/vendors/";
         } else {
             return null;
         }
@@ -51,7 +51,7 @@ public class VendorController {
     ) {
         request.setId(id);
         if (vendorService.update(request)) {
-            return "redirect:/master/vendors";
+            return "redirect:/master/vendors/";
         } else {
             return null;
         }
@@ -60,7 +60,7 @@ public class VendorController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         if (vendorService.delete(id)) {
-            return "redirect:/master/vendors";
+            return "redirect:/master/vendors/";
         } else {
             return null;
         }
