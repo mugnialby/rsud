@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{components/header :: header}"></div>
+    <body>
+        <div th:replace="~{components/navbar :: navbar}"></div>
+        <div class="container">
+            <div class="row">
+                <h1>Medical Support</h1>
+            </div>
+            <div class= "row">
+                <div class="col-lg-3">
+                    <a th:href = "@{/medSupports/add}" class="btn btn-primary btn-sm mb-3">Add</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Contract Name</th>
+                        <th>SP Number</th>
+                        <th>Invoice Number</th>
+                        <th>BPHP Number</th>
+                        <th>BASTP Number</th>
+                        <th>First PPK</th>
+                        <th>Second PPK</th>
+                        <th>PA</th>
+                        <th>PPTK</th>
+                        <th>Vendor</th>
+                        <th>Job Description</th>
+                        <th>Activity</th>
+                        <th>Job Start</th>
+                        <th>Job Finish</th>
+                        <th>SK Techincal Team Number</th>
+                        <th>SK PPK Number</th>
+                        <th>Contract Value</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each = "medSupport: ${medSupports}">
+                    <td>
+                        <a th:href="@{/medSupport/edit/{id} (id=${medSupport.id})}"
+                           class="btn btn-warning"> Update
+                        </a>
+                        <a th:href="@{/medSupport/delete/{id} (id=${medSupport.id})}"
+                           class="btn btn-danger"> Delete
+                        </a>
+                    </td>
+                    <td th:text = "${medSupport.contract.name}"></td>
+                    <td th:text = "${medSupport.spNumber}"></td>
+                    <td th:text = "${medSupport.invoiceNumber}"></td>
+                    <td th:text = "${medSupport.bphpNumber}"></td>
+                    <td th:text = "${medSupport.bastpNumber}"></td>
+                    <td th:text = "${medSupport.firstPpk.name}"></td>
+                    <td th:text = "${medSupport.secondPpk.name}"></td>
+                    <td th:text = "${medSupport.pa.name}"></td>
+                    <td th:text = "${medSupport.pptk.name}"></td>
+                    <td th:text = "${medSupport.vendor.name}"></td>
+                    <td th:text = "${medSupport.jobDescription}"></td>
+                    <td th:text = "${medSupport.activity}"></td>
+                    <td th:text = "${medSupport.jobStart}"></td>
+                    <td th:text = "${medSupport.jobFinish}"></td>
+                    <td th:text = "${medSupport.skTechTeamNumber}"></td>
+                    <td th:text = "${medSupport.skPpkNumber}"></td>
+                    <td th:text = "${medSupport.contractValue}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

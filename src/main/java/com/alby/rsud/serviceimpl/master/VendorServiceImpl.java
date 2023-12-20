@@ -1,12 +1,12 @@
-package com.alby.rsud.serviceimpl;
+package com.alby.rsud.serviceimpl.master;
 
 import com.alby.rsud.dto.master.vendor.request.VendorAddRequest;
 import com.alby.rsud.dto.master.vendor.request.VendorUpdateRequest;
 import com.alby.rsud.dto.master.vendor.response.VendorResponse;
 import com.alby.rsud.entity.master.Vendor;
-import com.alby.rsud.repository.VendorRepository;
-import com.alby.rsud.service.VendorService;
-import com.alby.rsud.utils.master.vendors.VendorUtils;
+import com.alby.rsud.repository.master.VendorRepository;
+import com.alby.rsud.service.master.VendorService;
+import com.alby.rsud.utils.master.VendorUtils;
 import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

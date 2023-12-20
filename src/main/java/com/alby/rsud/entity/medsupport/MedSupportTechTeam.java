@@ -1,5 +1,6 @@
-package com.alby.rsud.entity.master;
+package com.alby.rsud.entity.medsupport;
 
+import com.alby.rsud.entity.master.Employee;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,12 +8,12 @@ import java.time.Instant;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "mst_vendor")
-public class Vendor {
+@Table(name = "tr_med_support_tech_team")
+public class MedSupportTechTeam {
 
     @Id
     @GeneratedValue(
@@ -20,20 +21,13 @@ public class Vendor {
     )
     private Long id;
 
-    @Column(
-            name = "vendor_name",
-            nullable = false
-    )
-    private String vendorName;
+    @ManyToOne
+    @JoinColumn(name = "med_support_header_id")
+    private MedSupportHeader medSupportHeader;
 
     @ManyToOne
-    @JoinColumn(
-            name = "bank_id"
-    )
-    private Bank bank;
-
-    @Column(name = "bank_account_number")
-    private String bankAccountNumber;
+    @JoinColumn(name = "tech_team_member_id")
+    private Employee techTeamMember;
 
     private String status;
 

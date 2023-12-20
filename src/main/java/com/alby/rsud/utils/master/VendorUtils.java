@@ -1,4 +1,4 @@
-package com.alby.rsud.utils.master.vendors;
+package com.alby.rsud.utils.master;
 
 import com.alby.rsud.dto.master.vendor.request.VendorAddRequest;
 import com.alby.rsud.dto.master.vendor.request.VendorUpdateRequest;
@@ -20,6 +20,8 @@ public class VendorUtils {
             vendorResponse.add(VendorResponse.builder()
                     .id(vendor.getId())
                     .vendorName(vendor.getVendorName())
+                    .bank(vendor.getBank())
+                    .bankAccountNumber(vendor.getBankAccountNumber())
                     .createdBy(vendor.getCreatedBy())
 //                    .createdAt(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
 //                            .format(vendor.getCreatedAt()))
@@ -36,12 +38,17 @@ public class VendorUtils {
     public static Vendor mapVendorAddRequestToVendor(VendorAddRequest request) {
         return Vendor.builder()
                 .vendorName(request.getVendorName())
+                .bank(request.getBank())
+                .bankAccountNumber(request.getBankAccountNumber())
                 .build();
     }
 
     public static VendorResponse mapVendorToVendorResponse(Vendor vendor) {
         return VendorResponse.builder()
+                .id(vendor.getId())
                 .vendorName(vendor.getVendorName())
+                .bank(vendor.getBank())
+                .bankAccountNumber(vendor.getBankAccountNumber())
 //                .createdBy(vendor.getCreatedBy())
 //                .createdAt(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN)
 //                        .format(vendor.getCreatedAt()))
@@ -52,6 +59,8 @@ public class VendorUtils {
         return Vendor.builder()
                 .id(request.getId())
                 .vendorName(request.getVendorName())
+                .bank(request.getBank())
+                .bankAccountNumber(request.getBankAccountNumber())
                 .build();
     }
 }

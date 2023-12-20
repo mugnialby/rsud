@@ -1,4 +1,4 @@
-package com.alby.rsud.service;
+package com.alby.rsud.service.master;
 
 import com.alby.rsud.dto.master.vendor.request.VendorAddRequest;
 import com.alby.rsud.dto.master.vendor.request.VendorUpdateRequest;

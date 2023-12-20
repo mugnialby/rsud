@@ -7,12 +7,12 @@ import java.time.Instant;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "mst_vendor")
-public class Vendor {
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "mst_position")
+public class Position {
 
     @Id
     @GeneratedValue(
@@ -20,20 +20,7 @@ public class Vendor {
     )
     private Long id;
 
-    @Column(
-            name = "vendor_name",
-            nullable = false
-    )
-    private String vendorName;
-
-    @ManyToOne
-    @JoinColumn(
-            name = "bank_id"
-    )
-    private Bank bank;
-
-    @Column(name = "bank_account_number")
-    private String bankAccountNumber;
+    private String name;
 
     private String status;
 

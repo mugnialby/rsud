@@ -1,6 +1,5 @@
-package com.alby.rsud.dto.master.vendor.response;
+package com.alby.rsud.dto.master.contract.response;
 
-import com.alby.rsud.entity.master.Bank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,15 +9,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class VendorResponse {
+public class ContractResponse {
 
     private Long id;
 
-    private String vendorName;
-
-    private Bank bank;
-
-    private String bankAccountNumber;
+    private String name;
 
     private String createdBy;
 

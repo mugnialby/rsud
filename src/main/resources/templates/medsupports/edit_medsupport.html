@@ -1,0 +1,205 @@
+<!DOCTYPE html><html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{components/header :: header}"></div>
+    <body>
+        <div th:replace="~{components/navbar :: navbar}"></div>
+
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                    <h3 class="text-center"> Edit Medical Support </h3>
+                    <div class="card-body">
+                        <form th:action="@{/medSupports/update/{id} (id=${medSupport.id})}}" th:object="${request}" method="POST">
+                            <div class="form-group">
+                                <label> Contract Name </label>
+                                <select
+                                        name="name"
+                                        class="form-select"
+                                        th:field="*{contract.id}"
+                                        placeholder="Select Contract"
+                                        aria-label="Contract">
+                                    <option
+                                            th:each="contract : ${contracts}"
+                                            th:value="${contract.id}"
+                                            th:text="${contract.name}">
+                                    </option>
+                                </select>
+
+                                <label> SP Number </label>
+                                <input
+                                        type="text"
+                                        name="spNumber"
+                                        class="form-control"
+                                        th:field="*{spNumber}"
+                                        placeholder="Enter SP Number"
+                                />
+
+                                <label> Invoice Number </label>
+                                <input
+                                        type="text"
+                                        name="invoiceNumber"
+                                        class="form-control"
+                                        th:field="*{invoiceNumber}"
+                                        placeholder="Enter Invoice Number"
+                                />
+
+                                <label> BPHP Number </label>
+                                <input
+                                        type="text"
+                                        name="bphpNumber"
+                                        class="form-control"
+                                        th:field="*{bphpNumber}"
+                                        placeholder="Enter BPHP Number"
+                                />
+
+                                <label> BASTP Number </label>
+                                <input
+                                        type="text"
+                                        name="bastpNumber"
+                                        class="form-control"
+                                        th:field="*{bastpNumber}"
+                                        placeholder="Enter BASTP Number"
+                                />
+
+                                <label> First PPK </label>
+                                <select
+                                        name="name"
+                                        class="form-select"
+                                        th:field="*{firstPpk.id}"
+                                        placeholder="Select First PPK"
+                                        aria-label="First PPK">
+                                    <option
+                                            th:each="employee : ${employees}"
+                                            th:value="${employee.id}"
+                                            th:text="${employee.name}">
+                                    </option>
+                                </select>
+
+                                <label> Second PPK </label>
+                                <select
+                                        name="name"
+                                        class="form-select"
+                                        th:field="*{secondPpk.id}"
+                                        placeholder="Select Second PPK"
+                                        aria-label="Second PPK">
+                                    <option
+                                            th:each="employee : ${employees}"
+                                            th:value="${employee.id}"
+                                            th:text="${employee.name}">
+                                    </option>
+                                </select>
+
+                                <label> PA </label>
+                                <select
+                                        name="name"
+                                        class="form-select"
+                                        th:field="*{pa.id}"
+                                        placeholder="Select PA"
+                                        aria-label="PA">
+                                    <option
+                                            th:each="employee : ${employees}"
+                                            th:value="${employee.id}"
+                                            th:text="${employee.name}">
+                                    </option>
+                                </select>
+
+                                <label> PPTK </label>
+                                <select
+                                        name="name"
+                                        class="form-select"
+                                        th:field="*{pptk.id}"
+                                        placeholder="Select PPTK"
+                                        aria-label="PA">
+                                    <option
+                                            th:each="employee : ${employees}"
+                                            th:value="${employee.id}"
+                                            th:text="${employee.name}">
+                                    </option>
+                                </select>
+
+                                <label> Job Description </label>
+                                <input
+                                        type="text"
+                                        name="jobDescription"
+                                        class="form-control"
+                                        th:field="*{jobDescription}"
+                                        placeholder="Enter Job Description"
+                                />
+
+                                <label> Activity </label>
+                                <input
+                                        type="text"
+                                        name="activity"
+                                        class="form-control"
+                                        th:field="*{activity}"
+                                        placeholder="Enter Activity"
+                                />
+
+                                <label> Job Start </label>
+                                <input
+                                        type="text"
+                                        class="form-control datepicker"
+                                        id="jobStart"
+                                        th:field="*{jobStart}"
+                                />
+
+                                <label> Job Finish </label>
+                                <input
+                                        type="text"
+                                        class="form-control datepicker"
+                                        id="jobFinish"
+                                        th:field="*{jobFinish}"
+                                />
+
+                                <label> SK Technical Team Number </label>
+                                <input
+                                        type="text"
+                                        name="skTechTeamNumber"
+                                        class="form-control"
+                                        th:field="*{skTechTeamNumber}"
+                                        placeholder="Enter SK Technical Team Number"
+                                />
+
+                                <label> SK PPK Number </label>
+                                <input
+                                        type="text"
+                                        name="skPpkNumber"
+                                        class="form-control"
+                                        th:field="*{skPpkNumber}"
+                                        placeholder="Enter SK PPK Number"
+                                />
+
+                                <label> Contract Value </label>
+                                <input
+                                        type="text"
+                                        name="contractValue"
+                                        class="form-control"
+                                        th:field="*{contractValue}"
+                                        placeholder="Enter Contract Value"
+                                />
+                            </div>
+
+                            <div class="box-footer mt-3">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Initialize Bootstrap Datepicker -->
+        <script>
+            $(document).ready(function () {
+                $('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd',
+                    autoclose: true
+                });
+            });
+        </script>
+    </body>
+</html>

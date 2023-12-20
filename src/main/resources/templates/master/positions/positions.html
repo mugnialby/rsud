@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{components/header :: header}"></div>
+    <body>
+        <div th:replace="~{components/navbar :: navbar}"></div>
+
+        <div class="container">
+            <div class="row">
+                <h1>Positions</h1>
+            </div>
+            <div class= "row">
+                <div class="col-lg-3">
+                    <a th:href = "@{/master/positions/add}" class="btn btn-primary btn-sm mb-3">Add</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Position Name</th>
+                        <th>Created By</th>
+                        <th>Created At</th>
+                        <th>Modified By</th>
+                        <th>Modified At</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each = "position : ${positions}">
+                        <td>
+                            <a th:href="@{/master/positions/edit/{id} (id=${position.id})}"
+                                class="btn btn-warning"> Update
+                            </a>
+                            <a th:href="@{/master/positions/delete/{id} (id=${position.id})}"
+                               class="btn btn-danger"> Delete
+                            </a>
+                        </td>
+                        <td th:text = "${position.name}"></td>
+                        <td th:text = "${position.createdBy}"></td>
+                        <td th:text = "${position.createdAt}"></td>
+                        <td th:text = "${position.modifiedBy}"></td>
+                        <td th:text = "${position.modifiedAt}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

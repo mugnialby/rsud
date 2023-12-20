@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{components/header :: header}"></div>
+    <body>
+        <div th:replace="~{components/navbar :: navbar}"></div>
+
+        <div class="container">
+            <div class="row">
+                <h1>Contracts</h1>
+            </div>
+            <div class= "row">
+                <div class="col-lg-3">
+                    <a th:href = "@{/master/contracts/add}" class="btn btn-primary btn-sm mb-3">Add</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Contract Name</th>
+                        <th>Created By</th>
+                        <th>Created At</th>
+                        <th>Modified By</th>
+                        <th>Modified At</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each = "contract : ${contracts}">
+                        <td>
+                            <a th:href="@{/master/contracts/edit/{id} (id=${contract.id})}"
+                                class="btn btn-warning"> Update
+                            </a>
+                            <a th:href="@{/master/contracts/delete/{id} (id=${contract.id})}"
+                               class="btn btn-danger"> Delete
+                            </a>
+                        </td>
+                        <td th:text = "${contract.name}"></td>
+                        <td th:text = "${contract.createdBy}"></td>
+                        <td th:text = "${contract.createdAt}"></td>
+                        <td th:text = "${contract.modifiedBy}"></td>
+                        <td th:text = "${contract.modifiedAt}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

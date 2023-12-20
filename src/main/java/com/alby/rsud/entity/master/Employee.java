@@ -2,17 +2,19 @@ package com.alby.rsud.entity.master;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.time.Instant;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "mst_vendor")
-public class Vendor {
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "mst_employee")
+public class Employee {
 
     @Id
     @GeneratedValue(
@@ -21,19 +23,18 @@ public class Vendor {
     private Long id;
 
     @Column(
-            name = "vendor_name",
+            name = "employee_name",
             nullable = false
     )
-    private String vendorName;
+    private String employeeName;
+
+    private String nik;
 
     @ManyToOne
     @JoinColumn(
-            name = "bank_id"
+            name = "position_id"
     )
-    private Bank bank;
-
-    @Column(name = "bank_account_number")
-    private String bankAccountNumber;
+    private Position position;
 
     private String status;
 
@@ -48,4 +49,5 @@ public class Vendor {
 
     @Column(name = "modified_at")
     private Instant modifiedAt;
+
 }

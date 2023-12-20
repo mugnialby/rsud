@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{components/header :: header}"></div>
+    <body>
+        <div th:replace="~{components/navbar :: navbar}"></div>
+
+        <div class="container">
+            <div class="row">
+                <h1>Employees</h1>
+            </div>
+            <div class= "row">
+                <div class="col-lg-3">
+                    <a th:href = "@{/master/employees/add}" class="btn btn-primary btn-sm mb-3">Add</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Employee Name</th>
+                        <th>NIK</th>
+                        <th>Position Name</th>
+                        <th>Created By</th>
+                        <th>Created At</th>
+                        <th>Modified By</th>
+                        <th>Modified At</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each = "employee : ${employees}">
+                        <td>
+                            <a th:href="@{/master/employees/edit/{id} (id=${employee.id})}"
+                                class="btn btn-warning"> Update
+                            </a>
+                            <a th:href="@{/master/employees/delete/{id} (id=${employee.id})}"
+                               class="btn btn-danger"> Delete
+                            </a>
+                        </td>
+                        <td th:text = "${employee.employeeName}"></td>
+                        <td th:text = "${employee.nik}"></td>
+                        <td th:text = "${employee.position.name}"></td>
+                        <td th:text = "${employee.createdBy}"></td>
+                        <td th:text = "${employee.createdAt}"></td>
+                        <td th:text = "${employee.modifiedBy}"></td>
+                        <td th:text = "${employee.modifiedAt}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,6 +1,6 @@
-package com.alby.rsud.dto.master.vendor.request;
+package com.alby.rsud.dto.master.employee.request;
 
-import com.alby.rsud.entity.master.Bank;
+import com.alby.rsud.entity.master.Position;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,25 +9,23 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class VendorAddRequest {
+public class EmployeeUpdateRequest {
+    private Long id;
 
     @NotBlank
     @Length(max = 128)
-    private String vendorName;
-
-    private Bank bank;
+    private String employeeName;
 
     @NotBlank
-    @Length(max = 36)
-    private String bankAccountNumber;
+    @Length(max = 128)
+    private String nik;
 
-//    @NotBlank
-//    @Length(max = 100)
+    private Position position;
+
     private String createdBy;
 
-//    @Length(max = 100)
     private String modifiedBy;
 }

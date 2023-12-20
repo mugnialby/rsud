@@ -1,0 +1,60 @@
+<!DOCTYPE html><html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{components/header :: header}"></div>
+<body>
+    <div th:replace="~{components/navbar :: navbar}"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center"> Edit Vendor </h1>
+                <div class="card-body">
+                    <form th:object="${vendor}" th:action="@{/master/vendors/update/{id} (id=${vendor.id})}" method="POST">
+                        <div class="form-group">
+                            <label> Vendor Name </label>
+                            <input
+                                    type="text"
+                                    name="vendorName"
+                                    class="form-control"
+                                    th:field="*{vendorName}"
+                                    placeholder="Enter Vendor Name"
+                            />
+
+                            <label> Bank </label>
+                            <select
+                                    name="name"
+                                    class="form-select"
+                                    th:field="*{bank.id}"
+                                    placeholder="Select Bank"
+                                    aria-label="Bank">
+                                <option
+                                        th:each="bank : ${banks}"
+                                        th:value="${bank.id}"
+                                        th:text="${bank.name}">
+                                </option>
+                            </select>
+
+                            <label> Bank Account Number </label>
+                            <input
+                                    type="text"
+                                    name="bankAccountNumber"
+                                    class="form-control"
+                                    th:field="*{bankAccountNumber}"
+                                    placeholder="Enter Bank Account Number"
+                            />
+                        </div>
+
+                        <div class="box-footer mt-3">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

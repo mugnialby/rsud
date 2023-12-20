@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="~{components/header :: header}"></div>
+    <body>
+        <div th:replace="~{components/navbar :: navbar}"></div>
+        <div class="container">
+            <div class="row">
+                <h1>Vendor</h1>
+            </div>
+            <div class= "row">
+                <div class="col-lg-3">
+                    <a th:href = "@{/master/vendors/add}" class="btn btn-primary btn-sm mb-3">Add</a>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Vendor Name</th>
+                        <th>Bank</th>
+                        <th>Bank Account Number</th>
+                        <th>Created By</th>
+                        <th>Created At</th>
+                        <th>Modified By</th>
+                        <th>Modified At</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each = "vendor: ${vendors}">
+                        <td>
+                            <a th:href="@{/master/vendors/edit/{id} (id=${vendor.id})}"
+                                class="btn btn-warning"> Update
+                            </a>
+                            <a th:href="@{/master/vendors/delete/{id} (id=${vendor.id})}"
+                               class="btn btn-danger"> Delete
+                            </a>
+                        </td>
+                        <td th:text = "${vendor.vendorName}"></td>
+                        <td th:text = "${vendor.bank.name}"></td>
+                        <td th:text = "${vendor.bankAccountNumber}"></td>
+                        <td th:text = "${vendor.createdBy}"></td>
+                        <td th:text = "${vendor.createdAt}"></td>
+                        <td th:text = "${vendor.modifiedBy}"></td>
+                        <td th:text = "${vendor.modifiedAt}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
